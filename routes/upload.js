@@ -8,7 +8,7 @@ require("dotenv").config();
 const { extractTextFromPDF } = require("../services/pdfProcessor");
 const { chunkText } = require("../services/chunker");
 const { createEmbedding } = require("../services/embeddingService");
-const VectorChunk = require("../models/VectorChunk");
+const VectorChunk = require("./models/VectorChunk");
 
 // Multer
 const upload = multer({ limits: { fileSize: 5 * 1024 * 1024 } });
