@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Registration</title>
+</head>
+<body>
+    <h1>Test User Registration</h1>
+    
+    <h2>Register Admin:</h2>
+    <button onclick="registerAdmin()">Register as Admin (vijaykarthik2512@gmail.com)</button>
+    
+    <h2>Register Regular User:</h2>
+    <button onclick="registerUser()">Register as Regular User</button>
+    
+    <script>
+        async function registerAdmin() {
+            const response = await fetch('http://localhost:5000/api/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: 'vijaykarthik2512@gmail.com',
+                    password: 'admin123'
+                })
+            });
+            
+            const data = await response.json();
+            console.log('Admin registration:', data);
+            alert(data.message || data.error);
+        }
+        
+        async function registerUser() {
+            const response = await fetch('http://localhost:5000/api/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: 'test@example.com',
+                    password: 'test123'
+                })
+            });
+            
+            const data = await response.json();
+            console.log('User registration:', data);
+            alert(data.message || data.error);
+        }
+    </script>
+</body>
+</html>
