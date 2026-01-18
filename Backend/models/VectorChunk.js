@@ -10,7 +10,7 @@ const vectorChunkSchema = new mongoose.Schema({
   }
 });
 
-// Optional: create index on embedding if using MongoDB vector search later
+
 vectorChunkSchema.index({ embedding: "2dsphere" });
 
 module.exports = mongoose.model("VectorChunk", vectorChunkSchema);
