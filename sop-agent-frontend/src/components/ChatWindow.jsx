@@ -8,13 +8,13 @@ export default function ChatWindow() {
   const [input, setInput] = useState("");
   const [sources, setSources] = useState([]);
 
-  // 🔹 Load chat history
+  //  Load chat history
   useEffect(() => {
     const saved = localStorage.getItem("chatHistory");
     if (saved) setMessages(JSON.parse(saved));
   }, []);
 
-  // 🔹 Save chat history
+  //  Save chat history
   useEffect(() => {
     localStorage.setItem("chatHistory", JSON.stringify(messages));
   }, [messages]);
